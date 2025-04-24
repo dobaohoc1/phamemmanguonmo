@@ -1,0 +1,27 @@
+<nav class="bg-white py-4 px-6 flex items-center rounded-md mx-2 mb-2">
+  <!-- Phía bên trái -->
+
+  <ul class="flex items-center">
+    <% if (locals.user.username && locals.user.token) { %>
+      <li class="mr-6"><a href="#" class="text-black hover:text-black font-bold">
+          <%= locals.user.username %>
+        </a></li>
+      <li class="mr-6"><a href="/api/v1/user/logout" class="text-black hover:text-black font-bold">Đăng Xuất</a></li>
+      <% } %>
+  </ul>
+</nav>
+
+
+
+<% if (locals.user && locals.user.role==='admin' ) {%>
+  <div class="bg-white py-4 px-6 rounded-md mx-6 mb-2">
+    <span class="text-black hover:text-black font-bold float-left">Quản Trị Viên:</span>
+    <ul class="flex flex-wrap justify-center">
+      <li class="mr-6"><a href="/phim/create-movie?create=1" class="text-black hover:text-black font-bold">Thêm
+          Movie</a></li>
+      <li class="mr-6"><a href="/admin/crawl" class="text-black hover:text-black font-bold">Crawl(sắp)</a></li>
+    </ul>
+  </div>
+  <% } %>
+    <!-- <div class="bg-[#B7B597] py-4 px-6 rounded-md mx-6 mb-2">
+  </div> -->
